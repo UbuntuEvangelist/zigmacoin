@@ -1,19 +1,19 @@
 ---
 app:
   name: OpenDAX
-  domain: app.local
+  domain: zigmacoin.com
   subdomain: www
   show_landing: true
 render_protect: false
 csrfEnabled: false
 ssl:
-  enabled: false
-  email: support@example.com
+  enabled: true
+  email: support@zigmacoin.com
 updateVersions: false
 images:
   peatio: quay.io/openware/peatio:2.6.28
   barong: quay.io/openware/barong:2.6.19
-  frontend: quay.io/openware/baseapp:2.6.5
+  frontend: frontend/baseapp:2.6.0
   tower: quay.io/openware/tower:2.6.36
   rango: quay.io/openware/rango:2.6.1
 finex:
@@ -24,17 +24,17 @@ vendor:
   frontend: git@github.com:openware/baseapp.git
 kyc:
   provider: local
-  authorization_token: changeme
+  authorization_token: 891e65a30a09a240502b98c17dc9df79ebf5
   sandbox_mode: true
   api_endpoint: https://api.kycaid.com/
 vault:
-  root_token: changeme
-  peatio_rails_token: changeme
-  peatio_crypto_token: changeme
-  peatio_upstream_token: changeme
-  peatio_matching_token: changeme
-  barong_token: changeme
-  finex_engine_token: changeme
+  root_token: s.vYGhZaeR2JJbpCUG3tcM5cSg
+  peatio_rails_token: s.VV3XBZsirFcxhrSaImg4dRqc
+  peatio_crypto_token: s.ya0INy6zahDgY6Hfq2ibdNdS
+  peatio_upstream_token: s.hZhEcGpzw4RIreYp3l2j8i1L
+  peatio_matching_token: s.a6ej3Mi8MbXGQ2BDMPQsh2tQ
+  barong_token: s.FvjC6BfZwnnW4B59delaXTJK
+  finex_engine_token: s.VyBZqQI73bKGSC9fk2FDxRfv
 database:
   host: db
   adapter: mysql
@@ -50,21 +50,21 @@ storage:
   secretKey: changeme
   signatureVersion: '2'
 twilio:
-  enabled: false
-  phone_number: "+15005550000"
-  account_sid: changeme
-  auth_token: changeme
+  enabled: true
+  phone_number: "+14159695720"
+  account_sid: SK81b8869fade6deb591ec7d6d8f98d491
+  auth_token: wbDvCQ460SBkis0woebto2OzlMpeJpjv
 gaTrackerKey: ''
 captcha:
-  type: none
-  siteKey: changeme
-  secretKey: changeme
+  type: google
+  siteKey: 6LdrI2IaAAAAAPtYzoo-I_CpvTFLd2Rh12mediWV
+  secretKey: 6LdrI2IaAAAAAGsAdA8lwbXTZ16kKZZepayAoEF8
 smtp:
   host: smtp.sendgrid.net
   port: 2525
   user: apikey
-  password: changeme
-  sender_email: noreply@barong.io
+  password: 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
+  sender_email: support@zigmacoin.com
   sender_name: Postmaster
   sender_logo: https://storage.googleapis.com/public_peatio/logo.png
 wallets:

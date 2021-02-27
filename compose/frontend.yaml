@@ -1,0 +1,28 @@
+version: '3.6'
+
+services:
+  frontend:
+    restart: always
+    image: "frontend/baseapp:2.6.0"
+    volumes:
+      - ../config/frontend/env.js:/usr/share/nginx/html/config/env.js
+    labels:
+      - "traefik.http.routers.frontend-opendax.rule=Host(`www.zigmacoin.com`) && PathPrefix(`/`)"
+      - "traefik.enable=true"
+      - "traefik.http.services.frontend-opendax.loadbalancer.server.port=3000"
+      - "traefik.http.routers.frontend-opendax.entrypoints=websecure"
+      - "traefik.http.routers.frontend-opendax.tls=true"
+      - "traefik.http.routers.frontend-opendax.tls.certresolver=myresolver"
+
+  tower:
+    restart: always
+    image: "quay.io/openware/tower:2.6.36"
+    volumes:
+      - ../config/frontend/tower.js:/home/app/env.js
+    labels:
+      - "traefik.http.routers.tower-opendax.rule=Host(`www.zigmacoin.com`) && PathPrefix(`/tower`)"
+      - "traefik.enable=true"
+      - "traefik.http.services.tower-opendax.loadbalancer.server.port=8080"
+      - "traefik.http.routers.tower-opendax.entrypoints=websecure"
+      - "traefik.http.routers.tower-opendax.tls=true"
+      - "traefik.http.routers.tower-opendax.tls.certresolver=myresolver"
