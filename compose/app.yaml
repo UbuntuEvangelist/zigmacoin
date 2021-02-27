@@ -32,6 +32,20 @@ services:
       - ../config/barong/abilities.yml:/home/app/config/abilities.yml
 
 
+  finex-api:
+    restart: always
+    image: "quay.io/openware/finex:2.6.12"
+    command: "./orderapi"
+    volumes:
+      - ../config/finex:/app/config:ro
+
+  finex-engine:
+    restart: always
+    image: "quay.io/openware/finex:2.6.12"
+    command: "./finex"
+    volumes:
+      - ../config/finex:/app/config:ro
+
 
   applogic:
     restart: always

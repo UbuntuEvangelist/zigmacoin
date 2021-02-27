@@ -54,24 +54,6 @@ services:
       - ../config/rango.env
 
 
-  matching:
-    << : *peatio-daemon
-    environment:
-    - VAULT_TOKEN=${PEATIO_MATCHING_VAULT_TOKEN}
-    command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb matching"
-
-  order_processor:
-    << : *peatio-daemon
-    environment:
-    - VAULT_TOKEN=${PEATIO_MATCHING_VAULT_TOKEN}
-    command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb order_processor"
-
-  trade_executor:
-    << : *peatio-daemon
-    environment:
-    - VAULT_TOKEN=${PEATIO_MATCHING_VAULT_TOKEN}
-    command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb trade_executor"
-
 
   mailer:
     restart: always
