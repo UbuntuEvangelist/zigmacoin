@@ -17,7 +17,7 @@ images:
   tower: quay.io/openware/tower:2.6.36
   rango: quay.io/openware/rango:2.6.1
 finex:
-  enabled: false
+  enabled: true
   image: quay.io/openware/finex:2.6.12
   license_key: changeme
 vendor:
